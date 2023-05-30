@@ -1,0 +1,38 @@
+<form (ngSubmit)="myForm.valid && onSubmit()" #myForm="ngForm">
+    <div class="form">
+        <fieldset>
+            <label for="firstName">firstName</label>        
+            <input type="text" [(ngModel)]="firstName" name="firstName" #first="ngModel" required minlength="3" required maxlength="15">
+            <div *ngIf="myForm.submitted&& first.errors">
+                <span *ngIf="first.errors?.['required']">firstName requierd</span>
+                <span *ngIf="first.errors?.['minlength']">minimum 3 caracters</span>
+                <span *ngIf="first.errors?.['maxlength']">maximum 15 caracters</span>
+                
+                </div>
+    
+        </fieldset>
+        <fieldset>
+            <label for="lastName">lastName</label>
+            <input type="text" [(ngModel)]="lastName" name="lastName" #name='ngModel' required minlength="3" required maxlength="15">
+            <div *ngIf="myForm.submitted&& name.errors">
+                <span *ngIf="name.errors?.['required']">firstName requierd</span>
+                <span *ngIf="name.errors?.['minlength']">minimum 3 caracters</span>
+                <span *ngIf="name.errors?.['maxlength']">maximum 15 caracters</span>
+                
+                </div>
+        </fieldset>
+        <fieldset>
+            <label for="mail">mail</label>
+            <input type="email" [(ngModel)]="mail" name="mail" #mail_="ngModel" required>
+            <div *ngIf="myForm.submitted&& mail_.errors">
+                <span *ngIf="mail_.errors?.['required']">email requierd</span>
+    
+            </div>
+        </fieldset>
+        
+    </div> 
+    <div class="button">
+        <button type="submit">Submit</button>
+    <button type="reset">reset</button>
+    </div>  
+</form>

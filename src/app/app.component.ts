@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular05Formulaires';
+  buttonClicked = false;
+
+  buttonClick() {
+    this.buttonClicked= true;
+  }
+  constructor(private router: Router){}
+
+  isRouteEmpty():boolean{
+    return this.router.url === '/' }
 }
